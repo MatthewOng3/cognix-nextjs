@@ -1,0 +1,392 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafafa; /* main page background color (light theme, softened) */
+  --foreground: #111827; /* default text color on background */
+  --muted: #eeeeee; /* subtle background for muted/secondary sections */
+  --muted-foreground: #4b5563; /* text color used on muted backgrounds */
+  --accent: #e2861c; /* accent background for small UI elements (chips, badges, subtle buttons) */
+  --accent-foreground: #0f172a; /* text/icon color on accent background */
+  --border: #d4d5d6; /* default border color for cards, panels, separators */
+  --input: #e5e7eb; /* border/background color for input fields */
+  --ring: #0f172a; /* focus ring / outline color for focus states */
+  --primary: #0f172a; /* primary brand/action color (main buttons, CTAs) */
+  --primary-foreground: #f8fafc; /* text/icon color on primary backgrounds */
+  --secondary: #eef2f7; /* secondary surface color (secondary buttons, subtle sections) */
+  --secondary-foreground: #0f172a; /* text/icon color on secondary surfaces */
+  --destructive: #ef4444; /* background for destructive actions or errors */
+  --destructive-foreground: #fef2f2; /* text/icon color on destructive backgrounds */
+  --surface-raised: #ffffff; /* elevated surface — buttons, chips on toolbar (light) */
+  --card: #fbfbfd; /* card and panel background color */
+  --card-foreground: #111827; /* text/icon color inside cards */
+  --popover: #ffffff; /* background for popovers, dropdowns, tooltips */
+  --popover-foreground: #111827; /* text/icon color in popovers */
+  --sidebar: #f3f4f6; /* sidebar/navigation background */
+  --sidebar-foreground: #0f172a; /* text/icon color in sidebar */
+  --sidebar-accent: #e5e7eb; /* hover/active background inside sidebar */
+  --sidebar-accent-foreground: #0f172a; /* text/icon color on sidebar accent background */
+  --sidebar-border: #e5e7eb; /* borders and separators within sidebar */
+  --sidebar-ring: #0f172a; /* focus ring color for sidebar items */
+  --brand-primary: #f97316; /* primary brand color (main orange) */
+  --brand-secondary: #f59e0b; /* secondary brand color (supporting yellow) */
+  --brand-tertiary: #f43f5e; /* tertiary brand color (accent pink/red) */
+  --brand-surface: #fff7ed; /* light brand-tinted background surface */
+  --brand-surface-dark: #431407; /* dark brand-tinted background surface */
+  --brand-muted: #fdba74; /* softer brand tone for subtle accents */
+  --brand-muted-foreground: #7c2d12; /* text/icon color on brand-muted background */
+  --brand-border: #fed7aa; /* border color with a brand tint */
+  --brand-text-dark: #fffbeb; /* light text color for dark brand surfaces */
+  --brand-text-light: #431407; /* dark text color for light brand surfaces */
+  --brand-chip-foreground: #431407; /* readable text for brand chips on light surfaces */
+  --signal-50: #f0fdfa; /* lightest signal color (status backgrounds, subtle highlights) */
+  --signal-100: #ccfbf1; /* very light signal tint */
+  --signal-200: #99f6e4; /* light signal tint */
+  --signal-300: #5eead4; /* mid-light signal color */
+  --signal-400: #2dd4bf; /* mid signal color */
+  --signal-500: #14b8a6; /* base signal color (similar to primary of signal palette) */
+  --signal-600: #0d9488; /* slightly darker signal color */
+  --signal-700: #0f766e; /* dark signal color (strong accents/badges) */
+  --signal-800: #115e59; /* very dark signal color */
+  --signal-900: #134e4a; /* near-darkest signal color */
+  --signal-950: #042f2e; /* darkest signal color */
+  --navbar: #fef3c6; /* navbar background (light theme) */
+  --chat-background: #fafafa;
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--brand-surface) 0%,
+    var(--brand-primary) 100%
+  ); /* main brand gradient used for buttons/badges */
+  --gradient-surface: linear-gradient(
+    135deg,
+    var(--brand-primary) 0%,
+    #e5e7eb 65%,
+    #f5f5f5 100%
+  ); /* soft gradient for larger surfaces/sections */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-surface-raised: var(--surface-raised);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-tertiary: var(--brand-tertiary);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-surface-dark: var(--brand-surface-dark);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-muted-foreground: var(--brand-muted-foreground);
+  --color-brand-border: var(--brand-border);
+  --color-brand-text-dark: var(--brand-text-dark);
+  --color-brand-text-light: var(--brand-text-light);
+  --color-brand-chip-foreground: var(--brand-chip-foreground);
+  --color-signal-50: var(--signal-50);
+  --color-signal-100: var(--signal-100);
+  --color-signal-200: var(--signal-200);
+  --color-signal-300: var(--signal-300);
+  --color-signal-400: var(--signal-400);
+  --color-signal-500: var(--signal-500);
+  --color-signal-600: var(--signal-600);
+  --color-signal-700: var(--signal-700);
+  --color-signal-800: var(--signal-800);
+  --color-signal-900: var(--signal-900);
+  --color-signal-950: var(--signal-950);
+  --color-navbar: var(--navbar);
+  --color-chat-background: var(--chat-background);
+  --gradient-brand-primary: var(--gradient-primary);
+  --gradient-brand-surface: var(--gradient-surface);
+  --font-sans: var(--font-geist-sans), system-ui, Arial, sans-serif;
+  --font-mono:
+    var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+:root[data-theme="dark"] {
+  --background: #0a0a0a; /* main page background color (dark theme) */
+  --foreground: #ededed; /* default text color on dark background */
+  --muted: #0a0a0a; /* muted/secondary background surfaces in dark mode */
+  --muted-foreground: #a3a3a3; /* text color on muted dark surfaces */
+  --accent: #e2861c; /* accent background for dark mode (chips, badges, subtle buttons) */
+  --accent-foreground: #fafafa; /* text/icon color on dark accent background */
+  --border: #262626; /* default border color in dark mode */
+  --input: #262626; /* input border/background color in dark mode */
+  --ring: #d4d4d8; /* focus ring / outline color in dark mode */
+  --primary: #fafafa; /* primary action color (usually light on dark background) */
+  --primary-foreground: #171717; /* text/icon color on primary in dark mode */
+  --secondary: #262626; /* secondary surfaces/buttons in dark mode */
+  --secondary-foreground: #fafafa; /* text/icon color on secondary surfaces in dark mode */
+  --destructive: #ef4444; /* destructive background in dark mode */
+  --destructive-foreground: #fef2f2; /* text/icon color on destructive background in dark mode */
+  --surface-raised: #141414;
+  --card: #0a0a0a; /* card and panel background in dark mode */
+  --card-foreground: #ededed; /* text/icon color inside cards in dark mode */
+  --popover: #0a0a0a; /* background for popovers, dropdowns, tooltips in dark mode */
+  --popover-foreground: #ededed; /* text/icon color in popovers in dark mode */
+  --sidebar: #171717; /* sidebar/navigation background in dark mode */
+  --sidebar-foreground: #fafafa; /* text/icon color in sidebar in dark mode */
+  --sidebar-accent: #262626; /* hover/active background for sidebar in dark mode */
+  --sidebar-accent-foreground: #fafafa; /* text/icon color on sidebar accent background in dark mode */
+  --sidebar-border: #262626; /* borders and separators in sidebar in dark mode */
+  --sidebar-ring: #d4d4d8; /* focus ring color for sidebar items in dark mode */
+  --brand-primary: #fb923c; /* primary brand color adjusted for dark mode */
+  --brand-secondary: #fbbf24; /* secondary brand color in dark mode */
+  --brand-tertiary: #fb7185; /* tertiary brand color in dark mode */
+  --brand-surface: #292524; /* brand-tinted surface for dark backgrounds */
+  --brand-surface-dark: #1c1917; /* even darker brand-tinted surface */
+  --brand-muted: #ea580c; /* stronger brand accent for dark mode */
+  --brand-muted-foreground: #fed7aa; /* text/icon color on brand-muted in dark mode */
+  --brand-border: #7c2d12; /* brand-tinted border color in dark mode */
+  --brand-text-dark: #fffbeb; /* light text color for very dark brand areas */
+  --brand-text-light: #1c1917; /* dark text color for lighter brand areas in dark mode */
+  --brand-chip-foreground: #fffbeb; /* readable text for brand chips on dark surfaces */
+  --signal-50: #08201c; /* darkest end of signal ramp in dark mode (inverted) */
+  --signal-100: #0f2f29; /* very dark signal tint in dark mode */
+  --signal-200: #0f3f36; /* darker signal tint in dark mode */
+  --signal-300: #0e5245; /* dark-mid signal color in dark mode */
+  --signal-400: #0e6856; /* mid signal color in dark mode */
+  --signal-500: #0d7f67; /* base signal color in dark mode */
+  --signal-600: #0c8f72; /* slightly lighter signal in dark mode */
+  --signal-700: #11a98b; /* mid-light signal in dark mode */
+  --signal-800: #34cda8; /* light signal color in dark mode */
+  --signal-900: #8cf1d5; /* very light signal color in dark mode */
+  --signal-950: #ccfbf1; /* lightest signal color in dark mode (inverted ramp) */
+  --navbar: rgb(27, 27, 27); /* navbar background (dark theme) */
+  --chat-background: #171717;
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--brand-primary) 0%,
+    var(--brand-secondary) 100%
+  ); /* primary brand gradient for dark mode */
+  --gradient-surface: linear-gradient(
+    145deg,
+    var(--brand-surface-dark) 0%,
+    #312452 60%,
+    var(--brand-primary) 100%
+  ); /* surface/section gradient tuned for dark mode */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-display: swap;
+}
+
+/* Custom gradient classes */
+.cognix-gradient {
+  background: var(--accent);
+  background-image: none;
+  color: var(--accent-foreground);
+}
+
+.cognix-gradient-text {
+  background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
+  background-image: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cognix-text {
+  background: #f97316;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Header cursor styles */
+header .cursor-pointer {
+  cursor: pointer !important;
+}
+
+header button {
+  cursor: pointer !important;
+}
+
+/* Ensure pointer cursor for specific header elements */
+header .flex.items-center.gap-3 {
+  cursor: pointer !important;
+}
+
+header button.cognix-gradient {
+  cursor: pointer !important;
+}
+
+.blog-hero-grid {
+  position: relative;
+  isolation: isolate;
+}
+
+.blog-surface {
+  --blog-secondary-text: color-mix(in srgb, var(--foreground) 82%, transparent);
+}
+
+.blog-hero-grid::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -35% auto;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--brand-primary) 24%, transparent) 0%, transparent 72%);
+  filter: blur(24px);
+  z-index: -1;
+}
+
+.blog-prose {
+  color: var(--foreground);
+  line-height: 1.75;
+}
+
+.blog-prose h1,
+.blog-prose h2,
+.blog-prose h3,
+.blog-prose h4 {
+  color: var(--foreground);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.blog-prose h1 {
+  font-size: 2.25rem;
+  margin: 0 0 1.25rem;
+}
+
+.blog-prose h2 {
+  font-size: 1.75rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.blog-prose h3 {
+  font-size: 1.35rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.blog-prose p,
+.blog-prose ul,
+.blog-prose ol,
+.blog-prose blockquote {
+  margin: 1rem 0;
+  color: var(--blog-secondary-text);
+}
+
+.blog-prose p:has(> img) {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 1.5rem 0;
+}
+
+.blog-prose p:has(> img) img {
+  border-radius: 0.5rem;
+  max-width: 100%;
+}
+
+.blog-prose p:has(> img) em,
+.blog-prose p:has(> img) a {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  display: inline;
+}
+
+.blog-prose p:has(> img[src$=".gif"]) img {
+  max-height: 400px;
+  width: min(50%, 28rem);
+  min-width: 16rem;
+  object-fit: contain;
+}
+
+.blog-prose strong {
+  color: var(--foreground);
+}
+
+.blog-prose a {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  padding-left: 1.4rem;
+}
+
+.blog-prose ul {
+  list-style: disc;
+}
+
+.blog-prose ol {
+  list-style: decimal;
+}
+
+.blog-prose li {
+  margin: 0.45rem 0;
+  color: var(--blog-secondary-text);
+}
+
+.blog-prose li::marker {
+  color: var(--brand-primary);
+}
+
+.blog-prose ul ul {
+  list-style: circle;
+}
+
+.blog-prose ol ol {
+  list-style: lower-alpha;
+}
+
+.blog-prose blockquote {
+  border-left: 3px solid var(--brand-primary);
+  padding-left: 1rem;
+  color: var(--foreground);
+}
+
+.blog-prose code {
+  border: 1px solid var(--border);
+  background: var(--secondary);
+  border-radius: 0.5rem;
+  padding: 0.15rem 0.4rem;
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.95em;
+  color: var(--foreground);
+}
+
+.blog-prose pre {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 92%, black 8%);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.blog-prose pre code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
